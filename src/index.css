@@ -17,3 +17,33 @@ body {
 input{
   font-family: 'Montserrat', sans-serif;
 }
+
+.custom-modal-input{
+  border: 0px white;
+  border-bottom: 1px solid var(--black);
+  padding: 0.5rem 0rem;
+  width: 100%;
+  border-radius: 0px;
+  outline: none;
+  margin-top: -1rem !important;
+  box-shadow: none !important;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+.custom-modal-input::placeholder{
+  color: rgba(0,0, 0, 0.5);
+}
+
+.custom-modal-input:focus{
+  outline: none;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+  .ant-select-selector{
+    border: none !important;
+    box-shadow: none !important;
+  }
+

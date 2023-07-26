@@ -1,0 +1,39 @@
+.chart-wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    align-items: center;
+    width: 90%;
+    margin: 2rem auto;
+    gap: 2rem;
+}
+
+.chart, .chart-pie {
+    box-shadow: var(--shadow);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow: hidden;
+    width: 60%;
+}
+
+.chart-pie{
+    width: 40%;
+}
+
+.chart h2{
+    margin-bottom: 2rem;
+}
+
+.chart-pie h2{
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 970px) {
+    .chart-wrapper{
+        flex-direction: column;
+    }
+
+    .chart, .chart-pie{
+        width: 85%;
+    }
+}

@@ -1,0 +1,40 @@
+.my-card{
+    box-shadow: var(--shadow);
+    /* margin: 1rem; */
+    border-radius: 0.5rem;
+    min-width: 400px;
+    padding: 0.2rem !important;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+}
+
+.ant-card-head-title{
+    margin: 0 !important;
+    font-weight: 500;
+}
+
+.ant-card-body{
+    padding: 1rem !important;
+}
+
+.my-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    width: 90%;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.my-card p{
+    margin: 0;
+
+}
+
+@media only screen and (max-width: 480px){
+    .my-card{
+        min-width: 300px;
+        margin: 0;
+    }
+}

@@ -26,5 +26,9 @@
 
   .input-wrapper {
     margin-bottom: 1rem !important;
-}
+  }
+
+  .input-label {
+    margin-bottom: 0px !important;
+  }
 }
