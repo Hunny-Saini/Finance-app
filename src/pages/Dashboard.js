@@ -10,6 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import TransactionsTable from "../components/TransactionsTable";
 import ChartComponent from "../components/Charts";
 import NoTransactions from "../components/NoTransactions";
+import Loader from "../components/Loader";
 
 function Dashboard() {
   const [transactions, setTransactions] = useState([]);
@@ -119,7 +120,7 @@ function Dashboard() {
     <div>
       <Header />
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <>
           <Cards
