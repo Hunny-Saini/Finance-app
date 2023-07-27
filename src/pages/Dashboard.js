@@ -4,7 +4,19 @@ import Cards from "../components/Cards";
 import AddExpenseModal from "../components/Modals/AddExpense";
 import AddIncomeModal from "../components/Modals/AddIncome";
 import { auth, db } from "../firebase";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  Firestore,
+  addDoc,
+  collection,
+  deleteDoc,
+  deleteField,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+  writeBatch,
+} from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import TransactionsTable from "../components/TransactionsTable";
@@ -68,6 +80,28 @@ function Dashboard() {
     }
   }
 
+  async function resetTransaction() {
+    try {
+      const transRef = collection(db, `users/${user.uid}/transactions`);
+      const querySnapshot = await getDocs(transRef);
+      const batch = writeBatch(db);
+      querySnapshot.forEach((doc) => {
+        batch.delete(doc.ref);
+      });
+      await batch.commit();
+
+      
+      setTransactions([]);
+      setIncome(0);
+      setExpense(0);
+      setTotalBalance(0);
+
+      toast.success("Balance reset successfully!");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
   useEffect(() => {
     //get all docs from a collection
     fetchTransactions();
@@ -127,6 +161,7 @@ function Dashboard() {
             income={income}
             expense={expense}
             totalBalance={totalBalance}
+            resetTransaction={resetTransaction}
             showExpenseModal={showExpenseModal}
             showIncomeModal={showIncomeModal}
           />
